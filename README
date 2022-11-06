@@ -1,0 +1,53 @@
+//Copyright ALDICA MARIA MIRUNA 
+I create a stuct which contains: an int pointer that is going to
+represent the pixels of an image; its number of rows, columns, maximum,
+number of elements and the coordinates by which the next actions are
+going to be made.
+
+ LOAD
+If the action is 'LOAD' it checks if the image is already loaded or not
+For loading an image we read the magicword, the size and the maxvalue of its 
+pixels. 
+If our file is text type, we continue to read the image in ASCII
+If our file is binary type, we read the image in binary
+
+SELECT
+If the action is 'SELECT', there are given 4 numbers which represent 2 different
+coordinates by which the next action is going to be made.
+With this action we check if we meet the next conditions:
+1. If the coordinates are positive
+2. If the coordinates are different to any letters
+3. If the points does not exceed the height or width of the photo
+4. If the difference between the points of x axis and y axis is different 
+to zero
+5. If the argument is ALL, then we select the whole image
+
+ROTATE
+If the action is 'ROTATE' we will have an argument that represent the number 
+of degrees of the angle that rotates the image.
+The available valyes are +/-90, +/- 180, +/-270, +/-360(for the last 2 values, 
+the photo remains the same)
+The selection must be SQUARE.
+To rotate the negative values, we use their value + 360. To rotate every image,
+we make the transpose of it, then we swap the pixels one by one. 
+
+ CROP
+ If the action is 'CROP' it will crop the photo to the selecion made earlyer.
+ 
+ APPLY
+ If the action is 'APPLY' we will multiply the value of our pixels to the value
+ of kernel's pixels. 
+ It is available only if our image is coloured.
+ 
+ SAVE
+ If the action is 'SAVE', we check the next arguments. So we save the image and 
+ optional ASCII arguments that will make the image to be saves in a text mode.
+
+EXIT
+If the action is 'EXIT', the program ends by freeing the memory allocated
+
+ANOTHER
+If the action is not one of those mentioned above, the program will ignore it 
+and it will wait for another command
+
+
